@@ -31,7 +31,7 @@ class Anime_Generator:
             
             generate_text = pipeline(model="databricks/dolly-v2-3b", torch_dtype=torch.bfloat16, trust_remote_code=True, device_map="auto")
 
-            res = generate_text(self.user_init_text)
+            res = generate_text("### Instruction:\nWrite a script where Characters speak one by one\n\n### Response:\n"+self.user_init_text)
 
             return res[0]["generated_text"]
 
